@@ -1,4 +1,4 @@
-package cn.guoxy.mate.common.springdoc;
+package cn.guoxy.mate.configuration;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
@@ -18,10 +18,10 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @EnableConfigurationProperties(SpringDocProperties.class)
-public class SpringDocConfig {
+public class SpringDocConfiguration {
   private final SpringDocProperties springDocProperties;
 
-  public SpringDocConfig(SpringDocProperties springDocProperties) {
+  public SpringDocConfiguration(SpringDocProperties springDocProperties) {
     this.springDocProperties = springDocProperties;
   }
 

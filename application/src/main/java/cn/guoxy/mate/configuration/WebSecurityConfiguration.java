@@ -1,4 +1,4 @@
-package cn.guoxy.mate.common.security;
+package cn.guoxy.mate.configuration;
 
 import cn.guoxy.mate.common.MethodContextFilter;
 import org.springframework.context.annotation.Bean;
@@ -15,7 +15,7 @@ import org.springframework.security.web.servletapi.SecurityContextHolderAwareReq
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity(jsr250Enabled = true, securedEnabled = true)
-class WebSecurityConfig {
+class WebSecurityConfiguration {
 
   @Bean
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {

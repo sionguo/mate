@@ -1,6 +1,7 @@
-package cn.guoxy.mate.common.data;
+package cn.guoxy.mate.configuration;
 
 import cn.guoxy.common.tsid.Tsid;
+import cn.guoxy.mate.common.BaseEntity;
 import cn.guoxy.mate.common.MethodContext;
 import java.util.Optional;
 import org.springframework.context.annotation.Bean;
@@ -17,7 +18,7 @@ import org.springframework.util.StringUtils;
  */
 @Configuration
 @EnableJdbcAuditing
-public class JdbcConfig {
+public class JdbcConfiguration {
   @Bean
   public AuditorAware<String> auditorAware() {
     return () -> Optional.ofNullable(MethodContext.getCurrentUser());

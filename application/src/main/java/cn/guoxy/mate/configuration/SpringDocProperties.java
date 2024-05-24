@@ -1,4 +1,4 @@
-package cn.guoxy.mate.common.springdoc;
+package cn.guoxy.mate.configuration;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

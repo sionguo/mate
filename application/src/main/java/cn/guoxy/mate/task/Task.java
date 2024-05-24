@@ -1,6 +1,6 @@
 package cn.guoxy.mate.task;
 
-import cn.guoxy.mate.common.data.BaseEntity;
+import cn.guoxy.mate.common.BaseEntity;
 import java.io.Serial;
 import java.time.LocalDate;
 import lombok.Data;

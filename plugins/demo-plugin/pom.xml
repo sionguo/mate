@@ -19,7 +19,7 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
     <!-- need modify-->
-    <plugin.id>http-plugin</plugin.id>
+    <plugin.id>${project.artifactId}</plugin.id>
     <plugin.class>cn.guoxy.plugins.HttpPlugin</plugin.class>
     <plugin.version>${revision}</plugin.version>
     <plugin.provider>xiguo@corilead.com</plugin.provider>
@@ -27,9 +27,8 @@
   </properties>
   <dependencies>
     <dependency>
-      <groupId>asm</groupId>
-      <artifactId>asm-analysis</artifactId>
-      <version>3.2</version>
+      <groupId>com.squareup.okhttp3</groupId>
+      <artifactId>okhttp</artifactId>
     </dependency>
   </dependencies>
 
