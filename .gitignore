@@ -31,3 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+
+
+docker/data
+**/plugin.properties
+**/*-reduced-pom.xml

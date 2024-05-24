@@ -57,16 +57,17 @@ public class TaskListServiceImpl implements TaskListService {
 
   @Override
   public TaskList getTaskList(String id) {
-    return null;
+    return jdbcAggregateOperations.findById(id, TaskList.class);
   }
 
   @Override
-  public void deleteTaskList(String id) {}
+  public void deleteTaskList(String id) {
+    jdbcAggregateOperations.deleteById(id, TaskList.class);
+  }
 
   @Override
   @Observed
   public List<TaskList> listTaskList() {
-    logger.info("aa");
     Iterable<TaskList> createBy =
         jdbcAggregateOperations.findAll(
             Query.query(Criteria.where("createBy").is(MethodContext.getCurrentUser())),

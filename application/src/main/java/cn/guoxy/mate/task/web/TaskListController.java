@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import java.util.List;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -44,6 +45,19 @@ public class TaskListController {
       @PathVariable String taskListId, @RequestBody TaskListRequest request) {
     TaskListResponse response = new TaskListResponse();
     return ResponseEntity.ok(response);
+  }
+
+  @GetMapping("/{taskListId}")
+  @Operation(summary = "任务清单详情")
+  public ResponseEntity<TaskListResponse> getTaskList(@PathVariable String taskListId) {
+    return ResponseEntity.ok(toTaskListResponse(taskListService.getTaskList(taskListId)));
+  }
+
+  @DeleteMapping("/{taskListId}")
+  @Operation(summary = "删除任务清单")
+  public ResponseEntity<Void> deleteTaskList(@PathVariable String taskListId) {
+    taskListService.deleteTaskList(taskListId);
+    return ResponseEntity.noContent().build();
   }
 
   @GetMapping

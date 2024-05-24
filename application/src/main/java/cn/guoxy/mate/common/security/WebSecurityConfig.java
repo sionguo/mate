@@ -1,4 +1,4 @@
-package cn.guoxy.mate.common.security.config;
+package cn.guoxy.mate.common.security;
 
 import cn.guoxy.mate.common.MethodContextFilter;
 import org.springframework.context.annotation.Bean;
@@ -12,10 +12,6 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter;
 
-/**
- * Configuration applied on all web endpoints defined for this application. Any configuration on
- * specific resources is applied in addition to these global rules.
- */
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity(jsr250Enabled = true, securedEnabled = true)

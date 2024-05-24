@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.Instant;
+import java.time.LocalDate;
 import lombok.Data;
 
 /**
@@ -24,11 +25,14 @@ public class CreateTaskRequest implements Serializable {
   @Schema(description = "任务描述")
   private String description;
 
-  /** 开始日期 */
-  @Schema(description = "开始时间")
-  private Instant startDate;
+  /** 计划开始 */
+  @Schema(description = "计划开始")
+  private LocalDate plannedStart;
 
-  /** 到期日 */
-  @Schema(description = "截止时间")
-  private Instant dueDate;
+  /** 计划完成 */
+  @Schema(description = "计划完成")
+  private LocalDate plannedFinish;
+
+  @Schema(description = "任务列表ID")
+  private String taskListId;
 }

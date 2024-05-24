@@ -12,4 +12,5 @@ import lombok.Data;
 @Data
 public class ListTaskRequest implements Serializable {
   @Serial private static final long serialVersionUID = 1L;
+  private String query;
 }

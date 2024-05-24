@@ -6,15 +6,17 @@
   <parent>
     <groupId>cn.guoxy.mate</groupId>
     <artifactId>mate</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>${revision}</version>
   </parent>
 
   <artifactId>core</artifactId>
+  <name>Mate :: Core</name>
 
-  <properties>
-    <maven.compiler.source>17</maven.compiler.source>
-    <maven.compiler.target>17</maven.compiler.target>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
-
+  <dependencies>
+    <dependency>
+      <groupId>org.pf4j</groupId>
+      <artifactId>pf4j</artifactId>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
 </project>

@@ -1,6 +1,6 @@
 package cn.guoxy.mate.task;
 
-import cn.guoxy.mate.data.BaseEntity;
+import cn.guoxy.mate.common.data.BaseEntity;
 import java.io.Serial;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

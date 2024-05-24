@@ -12,11 +12,11 @@ import org.springframework.data.relational.core.mapping.Table;
  *
  * @author GuoXiaoyong
  */
-@Table(name = "account")
+@Table(name = "user")
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public class Account extends BaseEntity {
+public class User extends BaseEntity {
   @Serial private static final long serialVersionUID = 1L;
 
   /** 用户名 */

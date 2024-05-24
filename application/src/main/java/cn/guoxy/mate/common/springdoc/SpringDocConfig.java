@@ -1,4 +1,4 @@
-package cn.guoxy.mate.springdoc.config;
+package cn.guoxy.mate.common.springdoc;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;

@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.Instant;
+import java.time.LocalDate;
 import lombok.Data;
 
 /**
@@ -38,18 +39,30 @@ public class TaskResponse implements Serializable {
   @Schema(description = "任务描述")
   private String description;
 
-  @Schema(description = "开始时间")
-  private Instant startDate;
-
-  @Schema(description = "截止时间")
-  private Instant dueDate;
-
   @Schema(description = "任务优先级")
   private TaskPriority priority;
 
-  @Schema(description = "是否完成")
-  private Boolean done;
+  /** 状态 */
+  @Schema(description = "任务状态")
+  private String status;
 
-  @Schema(description = "完成时间")
-  private Instant doneDate;
+  /** 计划启动 */
+  @Schema(description = "计划开始")
+  private LocalDate plannedStart;
+
+  /** 计划完成 */
+  @Schema(description = "计划完成")
+  private LocalDate plannedFinish;
+
+  /** 实际开始 */
+  @Schema(description = "实际开始")
+  private LocalDate actualStart;
+
+  /** 实际完成 */
+  @Schema(description = "实际完成")
+  private LocalDate actualFinish;
+
+  /** 收藏 */
+  @Schema(description = "收藏")
+  private Boolean star;
 }

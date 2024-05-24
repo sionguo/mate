@@ -20,15 +20,13 @@ spring:
   security:
     oauth2:
       resourceserver:
-        opaquetoken:
-          introspection-uri: http://localhost:3333/oauth/v2/introspect
-          client-id: 260247992408276995@life_mate
-          client-secret: K6qTueJTCosPEC3DcJExELSU63G3WWGquGGdHQaJk34GmsPOSdUhbBlgbafnRvpB
+        jwt:
+          issuer-uri: http://localhost:18099
   datasource:
-    url: jdbc:postgresql://localhost:5432/
-    username: postgres
-    password: postgres
-    driver-class-name: org.postgresql.Driver
+    url: jdbc:mysql://localhost:3306/mate?useUnicode=true&characterEncoding=utf8&useSSL=false&connectionTimeZone=UTC&allowPublicKeyRetrieval=true&nullCatalogMeansCurrent=true&rewriteBatchedStatements=true
+    username: mateadmin
+    password: Password@123
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
 springdoc:
   swagger-ui:
@@ -38,22 +36,12 @@ springdoc:
     disable-swagger-default-url: true
     use-root-path: true
     oauth:
-      client-id: 264009740437225474@life_mate
-      client-secret: RoEYGdFjwTMx2DFx1N0WjQI0QjKJUtDyvJ6BMidSLXG3yp2uF1HauJ0ESMwUX4Ar
+      client-id: messaging-client
+      client-secret: secret
       scopes: profile,openid
   authorization-code:
-    authorizationUrl: http://localhost:3333/oauth/v2/authorize
-    tokenUrl: http://localhost:3333/oauth/v2/token
-
-management:
-  endpoints:
-    web:
-      base-path: /actuator
-      exposure:
-        include: '*'
-  tracing:
-    sampling:
-      probability: 1.0
+    authorizationUrl: http://127.0.0.1:19090/oauth2/authorize
+    tokenUrl: http://127.0.0.1:19090/oauth2/token
 
 
 logging:
@@ -63,6 +51,3 @@ logging:
       springframework:
         web: info
         security: debug
-  pattern:
-    correlation: "[${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
-  include-application-name: false

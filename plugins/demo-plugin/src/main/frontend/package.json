@@ -3,16 +3,17 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "main": "dist/out.umd.js",
   "module": "dist/out.umd.js",
   "exports": {
     ".": {
-      "require":"./dist/out.umd.js"
+      "require": "./dist/out.umd.js"
     }
   },
   "scripts": {
-    "dev": "vite",
     "build": "tsc && vite build"
   },
   "dependencies": {

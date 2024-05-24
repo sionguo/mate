@@ -13,10 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package sample.authentication;
+package cn.guoxy.auth.authentication;
 
+import java.io.Serial;
 import java.util.Map;
-
 import org.springframework.lang.Nullable;
 import org.springframework.security.core.Transient;
 import org.springframework.security.oauth2.core.ClientAuthenticationMethod;
@@ -24,21 +24,26 @@ import org.springframework.security.oauth2.server.authorization.authentication.O
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClient;
 
 /**
- * @author Joe Grandja
- * @author Steve Riesenberg
- * @since 1.1
+ * 设备客户端身份验证令牌（设备码模式token）
+ *
+ * @author GuoXiaoyong
  */
 @Transient
 public class DeviceClientAuthenticationToken extends OAuth2ClientAuthenticationToken {
+  @Serial private static final long serialVersionUID = 1L;
 
-	public DeviceClientAuthenticationToken(String clientId, ClientAuthenticationMethod clientAuthenticationMethod,
-			@Nullable Object credentials, @Nullable Map<String, Object> additionalParameters) {
-		super(clientId, clientAuthenticationMethod, credentials, additionalParameters);
-	}
+  public DeviceClientAuthenticationToken(
+      String clientId,
+      ClientAuthenticationMethod clientAuthenticationMethod,
+      @Nullable Object credentials,
+      @Nullable Map<String, Object> additionalParameters) {
+    super(clientId, clientAuthenticationMethod, credentials, additionalParameters);
+  }
 
-	public DeviceClientAuthenticationToken(RegisteredClient registeredClient, ClientAuthenticationMethod clientAuthenticationMethod,
-			@Nullable Object credentials) {
-		super(registeredClient, clientAuthenticationMethod, credentials);
-	}
-
+  public DeviceClientAuthenticationToken(
+      RegisteredClient registeredClient,
+      ClientAuthenticationMethod clientAuthenticationMethod,
+      @Nullable Object credentials) {
+    super(registeredClient, clientAuthenticationMethod, credentials);
+  }
 }

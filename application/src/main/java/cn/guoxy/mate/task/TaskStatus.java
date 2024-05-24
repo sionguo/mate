@@ -1,7 +1,12 @@
 package cn.guoxy.mate.task;
 
-public enum TaskPriority {
-  LOW,
-  NORMAL,
-  HIGH,
+/**
+ * 任务状态
+ *
+ * @author GuoXiaoyong
+ */
+public enum TaskStatus {
+  TODO,
+  PROCESSING,
+  COMPLETED
 }

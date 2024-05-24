@@ -1,4 +1,4 @@
-package cn.guoxy.mate.data;
+package cn.guoxy.mate.common.data;
 
 import java.io.Serial;
 import java.io.Serializable;
