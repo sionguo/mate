@@ -1,0 +1,31 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+  <changeSet author="Xiaoyong.Guo" id="20240506-01">
+    <createTable tableName="task_list">
+      <column name="id" type="VARCHAR(13)">
+        <constraints nullable="true" primaryKey="true"/>
+      </column>
+      <column name="version" type="INTEGER"/>
+      <column name="create_date" type="TIMESTAMP"/>
+      <column name="last_modified_date" type="TIMESTAMP"/>
+      <column name="create_by" type="VARCHAR(255)"/>
+      <column name="last_modified_by" type="VARCHAR(255)"/>
+
+      <column name="name" type="VARCHAR(255)"/>
+      <column name="color" type="VARCHAR(100)"/>
+    </createTable>
+  </changeSet>
+  <changeSet id="20240507-01" author="Xiaoyong.Guo">
+    <createIndex tableName="task_list" indexName="ix_tl_name">
+      <column name="name"/>
+    </createIndex>
+  </changeSet>
+  <changeSet id="20240507-02" author="Xiaoyong.Guo">
+    <createIndex tableName="task_list" indexName="ix_tl_create_by">
+      <column name="create_by"/>
+    </createIndex>
+  </changeSet>
+</databaseChangeLog>

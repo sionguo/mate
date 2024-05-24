@@ -1,0 +1,27 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+  <changeSet author="Xiaoyong.Guo" id="20240423-01">
+    <createTable tableName="task">
+      <column name="id" type="VARCHAR(13)">
+        <constraints nullable="true" primaryKey="true"/>
+      </column>
+      <column name="version" type="INTEGER"/>
+      <column name="create_date" type="TIMESTAMP"/>
+      <column name="last_modified_date" type="TIMESTAMP"/>
+      <column name="create_by" type="VARCHAR(255)"/>
+      <column name="last_modified_by" type="VARCHAR(255)"/>
+
+
+      <column name="title" type="VARCHAR(255)"/>
+      <column name="description" type="VARCHAR(255)"/>
+      <column name="start_date" type="TIMESTAMP"/>
+      <column name="due_date" type="TIMESTAMP"/>
+      <column name="priority" type="VARCHAR(10)"/>
+      <column name="done" type="BOOLEAN"/>
+      <column name="done_date" type="TIMESTAMP"/>
+    </createTable>
+  </changeSet>
+</databaseChangeLog>

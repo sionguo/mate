@@ -1,0 +1,68 @@
+server:
+  port: 18090
+  servlet:
+    context-path: /
+  error:
+    include-stacktrace: never
+
+spring:
+  application:
+    name: mate
+  mvc:
+    problemdetails:
+      enabled: true
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    deserialization:
+      # deals with single and multi-valued JWT claims
+      accept-single-value-as-array: true
+  security:
+    oauth2:
+      resourceserver:
+        opaquetoken:
+          introspection-uri: http://localhost:3333/oauth/v2/introspect
+          client-id: 260247992408276995@life_mate
+          client-secret: K6qTueJTCosPEC3DcJExELSU63G3WWGquGGdHQaJk34GmsPOSdUhbBlgbafnRvpB
+  datasource:
+    url: jdbc:postgresql://localhost:5432/
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+springdoc:
+  swagger-ui:
+    display-request-duration: true
+    groups-order: desc
+    operations-sorter: method
+    disable-swagger-default-url: true
+    use-root-path: true
+    oauth:
+      client-id: 264009740437225474@life_mate
+      client-secret: RoEYGdFjwTMx2DFx1N0WjQI0QjKJUtDyvJ6BMidSLXG3yp2uF1HauJ0ESMwUX4Ar
+      scopes: profile,openid
+  authorization-code:
+    authorizationUrl: http://localhost:3333/oauth/v2/authorize
+    tokenUrl: http://localhost:3333/oauth/v2/token
+
+management:
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include: '*'
+  tracing:
+    sampling:
+      probability: 1.0
+
+
+logging:
+  level:
+    root: info
+    org:
+      springframework:
+        web: info
+        security: debug
+  pattern:
+    correlation: "[${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
+  include-application-name: false
