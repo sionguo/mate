@@ -1,11 +1,7 @@
-import {default as c} from './components';
+import { default as c } from './components';
 
 function App() {
-  return (
-      <>
-        {c.name}
-      </>
-  );
+  return <>{c.name}</>;
 }
 
 export default App;
