@@ -97,6 +97,7 @@
             <workingDirectory>src/main/frontend</workingDirectory>
             <pnpmVersion>9.1.2</pnpmVersion>
             <nodeVersion>v18.20.3</nodeVersion>
+            <nodeDownloadRoot>https://registry.npmmirror.com/-/binary/node/</nodeDownloadRoot>
           </configuration>
           <executions>
             <execution>

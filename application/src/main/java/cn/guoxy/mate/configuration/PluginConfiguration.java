@@ -12,7 +12,6 @@ import org.springframework.context.annotation.Configuration;
 public class PluginConfiguration {
   @Bean
   public PluginManager pluginManager() {
-    SpringPluginManager springPluginManager = new SpringPluginManager();
-    return springPluginManager;
+    return new SpringPluginManager();
   }
 }
