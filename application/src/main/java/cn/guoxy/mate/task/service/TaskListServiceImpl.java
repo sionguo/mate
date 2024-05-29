@@ -4,7 +4,6 @@ import cn.guoxy.mate.common.BusinessException;
 import cn.guoxy.mate.common.MethodContext;
 import cn.guoxy.mate.task.TaskList;
 import cn.guoxy.mate.task.dto.TaskListRequest;
-import io.micrometer.observation.annotation.Observed;
 import java.util.ArrayList;
 import java.util.List;
 import org.slf4j.Logger;
@@ -66,7 +65,6 @@ public class TaskListServiceImpl implements TaskListService {
   }
 
   @Override
-  @Observed
   public List<TaskList> listTaskList() {
     Iterable<TaskList> createBy =
         jdbcAggregateOperations.findAll(
