@@ -1,10 +1,29 @@
 package cn.guoxy.plugins;
 
-import org.pf4j.Plugin;
+import cn.guoxy.flow.FlowNodeExtension;
+import java.io.InputStream;
+import org.pf4j.Extension;
 
 /**
  * http插件
  *
  * @author GuoXiaoyong
  */
-public class HttpPlugin extends Plugin {}
+@Extension
+public class HttpPlugin implements FlowNodeExtension {
+
+  @Override
+  public InputStream getCssInputStream() {
+    return null;
+  }
+
+  @Override
+  public InputStream getJsInputStream() {
+    return null;
+  }
+
+  @Override
+  public String name() {
+    return "";
+  }
+}

@@ -51,4 +51,4 @@ logging:
       springframework:
         web: info
         security: debug
-      pf4j: debug
+      pf4j: trace

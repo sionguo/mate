@@ -8,7 +8,7 @@ import org.pf4j.ExtensionPoint;
  *
  * @author GuoXiaoyong
  */
-public interface NodeExtension extends ExtensionPoint {
+public interface FlowNodeExtension extends ExtensionPoint {
 
   /**
    * 获取节点css内容
