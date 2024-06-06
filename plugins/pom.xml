@@ -19,11 +19,6 @@
 
   <dependencies>
     <dependency>
-      <groupId>org.pf4j</groupId>
-      <artifactId>pf4j</artifactId>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
       <groupId>cn.guoxy.mate</groupId>
       <artifactId>core</artifactId>
       <version>${revision}</version>
@@ -38,56 +33,13 @@
         <targetPath>assets</targetPath>
         <filtering>true</filtering>
       </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
     </resources>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>copy-dependencies</id>
-            <phase>package</phase>
-            <goals>
-              <goal>copy-dependencies</goal>
-            </goals>
-            <configuration>
-              <includeScope>runtime</includeScope>
-              <outputDirectory>${project.build.directory}/lib</outputDirectory>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
     <pluginManagement>
       <plugins>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-shade-plugin</artifactId>
-          <version>3.5.3</version>
-          <executions>
-            <execution>
-              <id>shade-plugin-jar</id>
-              <phase>package</phase>
-              <goals>
-                <goal>shade</goal>
-              </goals>
-              <configuration>
-                <minimizeJar>false</minimizeJar>
-                <transformers>
-                  <transformer
-                    implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                    <manifestEntries>
-                      <Plugin-Id>${plugin.id}</Plugin-Id>
-                      <Plugin-Class>${plugin.class}</Plugin-Class>
-                      <Plugin-Version>${plugin.version}</Plugin-Version>
-                      <Plugin-Provider>${plugin.provider}</Plugin-Provider>
-                    </manifestEntries>
-                  </transformer>
-                </transformers>
-              </configuration>
-            </execution>
-          </executions>
-        </plugin>
         <!-- frontend -->
         <plugin>
           <groupId>com.github.eirslett</groupId>
@@ -126,27 +78,6 @@
               <configuration>
                 <arguments>build</arguments>
               </configuration>
-            </execution>
-          </executions>
-        </plugin>
-        <!-- ant -->
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-antrun-plugin</artifactId>
-          <version>3.1.0</version>
-          <executions>
-            <execution>
-              <id>create-plugin-properties</id>
-              <phase>compile</phase>
-              <configuration>
-                <target name="createPluginProperties">
-                  <echo file="${project.basedir}/plugin.properties" append="false" force="true"
-                    message="plugin.id=${plugin.id}${line.separator}plugin.class=${plugin.class}${line.separator}plugin.version=${plugin.version}${line.separator}plugin.provider=${plugin.provider}${line.separator}plugin.dependencies=${plugin.dependencies}"/>
-                </target>
-              </configuration>
-              <goals>
-                <goal>run</goal>
-              </goals>
             </execution>
           </executions>
         </plugin>

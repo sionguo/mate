@@ -2,8 +2,6 @@ server:
   port: 18090
   servlet:
     context-path: /
-  error:
-    include-stacktrace: never
 
 spring:
   application:
@@ -11,12 +9,6 @@ spring:
   mvc:
     problemdetails:
       enabled: true
-  jackson:
-    serialization:
-      write-dates-as-timestamps: false
-    deserialization:
-      # deals with single and multi-valued JWT claims
-      accept-single-value-as-array: true
   security:
     oauth2:
       resourceserver:
@@ -51,4 +43,3 @@ logging:
       springframework:
         web: info
         security: debug
-      pf4j: trace

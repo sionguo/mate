@@ -1,5 +1,6 @@
 package cn.guoxy.auth;
 
+import java.time.Duration;
 import java.util.UUID;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -9,6 +10,7 @@ import org.springframework.security.oauth2.core.oidc.OidcScopes;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClient;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClientRepository;
 import org.springframework.security.oauth2.server.authorization.settings.ClientSettings;
+import org.springframework.security.oauth2.server.authorization.settings.TokenSettings;
 import org.springframework.stereotype.Component;
 
 /**
@@ -101,6 +103,11 @@ public class InitApplicationRunner implements ApplicationRunner {
             .scope(OidcScopes.PROFILE)
             .scope("message.read")
             .scope("message.write")
+            .tokenSettings(
+                TokenSettings.builder()
+                    .accessTokenTimeToLive(Duration.ofMinutes(30))
+                    .refreshTokenTimeToLive(Duration.ofMinutes(40))
+                    .build())
             .build();
     RegisteredClient findPkceClient =
         registeredClientRepository.findByClientId(pkceClient.getClientId());

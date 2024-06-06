@@ -97,13 +97,21 @@
       <artifactId>core</artifactId>
       <version>${project.version}</version>
     </dependency>
-    <dependency>
-      <groupId>org.pf4j</groupId>
-      <artifactId>pf4j</artifactId>
-    </dependency>
   </dependencies>
 
+<profiles>
 
+  <profile>
+    <id>development</id>
+    <dependencies>
+      <dependency>
+        <groupId>cn.guoxy.mate</groupId>
+        <artifactId>demo-plugin</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+      </dependency>
+    </dependencies>
+  </profile>
+</profiles>
   <build>
     <plugins>
       <plugin>
