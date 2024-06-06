@@ -1,5 +1,6 @@
 package cn.guoxy.flow;
 
+import cn.guoxy.spi.NamedSPI;
 import java.io.InputStream;
 
 /**
@@ -7,7 +8,7 @@ import java.io.InputStream;
  *
  * @author GuoXiaoyong
  */
-public interface NodeExtension {
+public interface NodeExtension extends NamedSPI {
 
   /**
    * 获取名称
