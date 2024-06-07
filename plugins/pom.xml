@@ -18,7 +18,7 @@
   </properties>
 
   <modules>
-    <module>demo-plugin</module>
+    <module>http-plugin</module>
   </modules>
 
   <dependencies>

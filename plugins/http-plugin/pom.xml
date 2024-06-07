@@ -9,7 +9,7 @@
     <version>${revision}</version>
   </parent>
 
-  <artifactId>demo-plugin</artifactId>
+  <artifactId>http-plugin</artifactId>
   <name>Mate :: Plugin HTTP</name>
   <properties>
     <java.version>17</java.version>
