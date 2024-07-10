@@ -26,7 +26,6 @@
 
   <modules>
     <module>application</module>
-    <module>common</module>
     <module>plugins</module>
     <module>core</module>
   </modules>

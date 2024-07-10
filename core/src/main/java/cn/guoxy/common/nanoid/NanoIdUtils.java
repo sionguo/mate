@@ -1,4 +1,4 @@
-package cn.guoxy.common;
+package cn.guoxy.common.nanoid;
 
 import java.security.SecureRandom;
 import java.util.Random;

@@ -1,6 +1,6 @@
 package cn.guoxy.flow;
 
-import cn.guoxy.common.NanoIdUtils;
+import cn.guoxy.common.nanoid.NanoIdUtils;
 import cn.guoxy.common.WorkflowUtils;
 import cn.guoxy.exception.WorkflowException;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;

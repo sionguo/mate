@@ -1,6 +1,6 @@
 package cn.guoxy.flow;
 
-import cn.guoxy.common.NanoIdUtils;
+import cn.guoxy.common.nanoid.NanoIdUtils;
 import cn.guoxy.flow.Workflow.Edge;
 import java.io.Serial;
 import java.io.Serializable;
