@@ -12,13 +12,15 @@ spring:
   security:
     oauth2:
       resourceserver:
-        jwt:
-          issuer-uri: http://localhost:18099
+        opaquetoken:
+          client-secret: bd0DNrDKSzOcDcL1crFgBIy0qaF4hHIgD4ypixaWonA1uGpFzCusZ0xXZfjDo1Kc
+          client-id: 275320595195953156@mate
+          introspection-uri: http://localhost:8080/oauth/v2/introspect
   datasource:
-    url: jdbc:mysql://localhost:3306/mate?useUnicode=true&characterEncoding=utf8&useSSL=false&connectionTimeZone=UTC&allowPublicKeyRetrieval=true&nullCatalogMeansCurrent=true&rewriteBatchedStatements=true
+    url: jdbc:postgresql://localhost:5432/mate
     username: mateadmin
-    password: Password@123
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: mateadmin
+    driver-class-name: org.postgresql.Driver
 
 springdoc:
   swagger-ui:
@@ -27,13 +29,7 @@ springdoc:
     operations-sorter: method
     disable-swagger-default-url: true
     use-root-path: true
-    oauth:
-      client-id: messaging-client
-      client-secret: secret
-      scopes: profile,openid
-  authorization-code:
-    authorizationUrl: http://127.0.0.1:19090/oauth2/authorize
-    tokenUrl: http://127.0.0.1:19090/oauth2/token
+
 
 
 logging:
