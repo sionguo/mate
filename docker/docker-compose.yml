@@ -1,23 +1,23 @@
 version: '3.8'
 
 services:
-  mysql:
-    restart: unless-stopped
-    image: mysql
-    container_name: mysql
-    environment:
-      - MYSQL_ROOT_PASSWORD=MyNewPass4!
-    ports:
-      - '3306:3306'
-    volumes:
-      - "./mysql/data:/var/lib/mysql:rw"
-    healthcheck:
-      # mysqladmin -uroot -p123  ping -h127.0.0.1
-      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
-      #      test: [ "CMD", "mysqladmin","-u","root","-p","123" ,"ping", "-h", "127.0.0.1" ]
-      timeout: 45s
-      interval: 10s
-      retries: 10
+#  mysql:
+#    restart: unless-stopped
+#    image: mysql
+#    container_name: mysql
+#    environment:
+#      - MYSQL_ROOT_PASSWORD=MyNewPass4!
+#    ports:
+#      - '3306:3306'
+#    volumes:
+#      - "./mysql/data:/var/lib/mysql:rw"
+#    healthcheck:
+#      # mysqladmin -uroot -p123  ping -h127.0.0.1
+#      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+#      #      test: [ "CMD", "mysqladmin","-u","root","-p","123" ,"ping", "-h", "127.0.0.1" ]
+#      timeout: 45s
+#      interval: 10s
+#      retries: 10
 
   zitadel:
     restart: 'always'
