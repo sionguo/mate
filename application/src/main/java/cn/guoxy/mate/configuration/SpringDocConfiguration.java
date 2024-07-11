@@ -1,14 +1,13 @@
 package cn.guoxy.mate.configuration;
 
-import io.swagger.v3.oas.models.Components;
-import io.swagger.v3.oas.models.OpenAPI;
-import io.swagger.v3.oas.models.info.Info;
-import io.swagger.v3.oas.models.security.OAuthFlow;
-import io.swagger.v3.oas.models.security.OAuthFlows;
-import io.swagger.v3.oas.models.security.SecurityRequirement;
-import io.swagger.v3.oas.models.security.SecurityScheme;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.context.annotation.Bean;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
+import io.swagger.v3.oas.annotations.info.Info;
+import io.swagger.v3.oas.annotations.security.OAuthFlow;
+import io.swagger.v3.oas.annotations.security.OAuthFlows;
+import io.swagger.v3.oas.annotations.security.OAuthScope;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -17,38 +16,33 @@ import org.springframework.context.annotation.Configuration;
  * @author GuoXiaoyong
  */
 @Configuration
-@EnableConfigurationProperties(SpringDocProperties.class)
-public class SpringDocConfiguration {
-  private final SpringDocProperties springDocProperties;
-
-  public SpringDocConfiguration(SpringDocProperties springDocProperties) {
-    this.springDocProperties = springDocProperties;
-  }
-
-  @Bean
-  public OpenAPI openAPI() {
-    final String apiTitle = "Open API";
-    final String apiVersion = "1.0.0";
-    final String apiDescription = "任务、笔记、文件API";
-    final Info info = new Info().title(apiTitle).version(apiVersion).description((apiDescription));
-    final SecurityScheme oAuth2Security =
-        new SecurityScheme()
-            .name("OAuth2Security")
-            .type(SecurityScheme.Type.OAUTH2)
-            .in(SecurityScheme.In.HEADER)
-            .bearerFormat("jwt")
-            .flows(
-                new OAuthFlows()
-                    .authorizationCode(
-                        new OAuthFlow()
-                            .authorizationUrl(springDocProperties.getAuthorizationUrl())
-                            .tokenUrl(springDocProperties.getTokenUrl())));
-
-    final SecurityRequirement requirement = new SecurityRequirement().addList("OAuth2Security");
-
-    return new OpenAPI()
-        .addSecurityItem(requirement)
-        .components(new Components().addSecuritySchemes("OAuth2Security", oAuth2Security))
-        .info(info);
-  }
-}
+@OpenAPIDefinition(
+    info =
+        @Info(
+            title = "Springdoc OAS3.0 - Mate Application - RESTful API",
+            description = "Springdoc OAS3.0 - Mate Application - RESTful API",
+            version = "1.0.0"),
+    security = {
+      @SecurityRequirement(
+          name = "OAuth2 Flow",
+          scopes = {"openid", "profile", "email", "phone", "address", "offline_access"})
+    })
+@SecurityScheme(
+    name = "OAuth2 Flow",
+    type = SecuritySchemeType.OAUTH2,
+    flows =
+        @OAuthFlows(
+            authorizationCode =
+                @OAuthFlow(
+                    authorizationUrl = "${springdoc.swagger-ui.oauth.authorization-url}",
+                    tokenUrl = "${springdoc.swagger-ui.oauth.token-url}",
+                    scopes = {
+                      @OAuthScope(name = "openid"),
+                      @OAuthScope(name = "profile"),
+                      @OAuthScope(name = "email"),
+                      @OAuthScope(name = "phone"),
+                      @OAuthScope(name = "address"),
+                      @OAuthScope(name = "offline_access"),
+                    })),
+    description = "OAuth2授权码认证流程，<br/>根据需要选择下方的Scopes。")
+public class SpringDocConfiguration {}

@@ -29,8 +29,11 @@ springdoc:
     operations-sorter: method
     disable-swagger-default-url: true
     use-root-path: true
-
-
+    oauth:
+      client-id: 275450277841141764@mate
+      client-secret: i0H5GWadKNAX6kSYrlnd3jELBWiwDeiZfZEJWdlguAkKst8TN1fdkxrJNuuQ25ad
+      authorization-url: http://localhost:8080/oauth/v2/authorize
+      token-url: http://localhost:8080/oauth/v2/token
 
 logging:
   level:

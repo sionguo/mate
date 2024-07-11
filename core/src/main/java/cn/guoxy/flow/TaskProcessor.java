@@ -17,6 +17,14 @@ public interface TaskProcessor extends NamedSPI {
     return this.getClass().getSimpleName().replace("TaskProcessor", "");
   }
 
+  default String getUrl() {
+    return this.getClass().getSimpleName().replace("TaskProcessor", "") + ".umd.js";
+  }
+
+  default String getCssUrl() {
+    return null;
+  }
+
   /**
    * 过程
    *

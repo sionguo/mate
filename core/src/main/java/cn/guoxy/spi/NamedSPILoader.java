@@ -1,6 +1,7 @@
 package cn.guoxy.spi;
 
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -69,6 +70,15 @@ public final class NamedSPILoader<S extends NamedSPI> implements Iterable<S> {
 
   public Set<String> availableServices() {
     return services.keySet();
+  }
+
+  /**
+   * 所有服务
+   *
+   * @return {@code Set<S> }
+   */
+  public Set<S> allServices() {
+    return new HashSet<>(services.values());
   }
 
   @Override
