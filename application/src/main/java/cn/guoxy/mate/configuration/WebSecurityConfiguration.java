@@ -34,6 +34,8 @@ class WebSecurityConfiguration {
             arc -> {
               arc.requestMatchers("/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**")
                   .permitAll()
+                  .requestMatchers("/js/**", "/css/**")
+                  .permitAll()
                   .requestMatchers("/actuator/**")
                   .permitAll()
                   .anyRequest()

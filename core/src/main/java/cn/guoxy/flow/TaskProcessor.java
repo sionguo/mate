@@ -1,6 +1,7 @@
 package cn.guoxy.flow;
 
 import cn.guoxy.spi.NamedSPI;
+import java.io.InputStream;
 import java.util.Collections;
 import java.util.Set;
 
@@ -17,11 +18,19 @@ public interface TaskProcessor extends NamedSPI {
     return this.getClass().getSimpleName().replace("TaskProcessor", "");
   }
 
-  default String getUrl() {
-    return this.getClass().getSimpleName().replace("TaskProcessor", "") + ".umd.js";
+  default InputStream readResource(String resourcePath) {
+    return getClass().getClassLoader().getResourceAsStream(resourcePath);
   }
 
-  default String getCssUrl() {
+  default boolean hasCssResource() {
+    return false;
+  }
+
+  default InputStream getJsResource() {
+    return readResource("assets/index.umd.js");
+  }
+
+  default InputStream getCssResource() {
     return null;
   }
 

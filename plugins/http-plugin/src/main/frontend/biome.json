@@ -1,0 +1,31 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
+  "organizeImports": {
+    "enabled": true
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true
+    },
+    "include": ["src"],
+    "ignore": ["src/services"]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 120,
+    "ignore": ["node_modules", "dist", "pnpm-lock.yaml", ".million", "tsconfig*"],
+    "include": ["./"],
+    "formatWithErrors": true
+  },
+  "javascript": {
+    "formatter": {
+      "quoteProperties": "asNeeded",
+      "arrowParentheses": "asNeeded",
+      "quoteStyle": "single"
+    },
+    "jsxRuntime": "transparent"
+  }
+}

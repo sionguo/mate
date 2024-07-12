@@ -6,14 +6,14 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   plugins: [react()],
   build: {
-    minify: false,
+    minify: true,
     lib: {
       formats: ['umd'],
       entry: resolve(__dirname, 'src/components/index.tsx'),
       fileName: format => `index.${format}.js`,
       name: 'plugin',
     },
-    rollupOptions: { external: ['react', 'reactflow'], output: { globals: { react: 'React' } } },
+    rollupOptions: { external: ['react', 'xflow'], output: { globals: { react: 'React' } } },
   },
   define: { 'process.env.NODE_ENV': '"production"' },
 });

@@ -1,18 +1,17 @@
 // @ts-ignore
 import React from 'react';
-import { Handle, NodeProps, Position } from 'reactflow';
+import type { Node, NodeProps } from '@xyflow/react';
+import { Handle, Position } from '@xyflow/react';
 
-type Props = {
-  url: string;
-};
-
-export default ({ data }: NodeProps<Props>) => {
+type HttpNode = Node<{ method: string }, 'http'>;
+const HttpNodeComp = ({ data }: NodeProps<HttpNode>) => {
   return (
-    <div>
-      <Handle type="target" position={Position.Left} />
-      <div>{data.url}</div>
-      <Handle type="source" position={Position.Right} id="seccess" />
-      <Handle type="source" position={Position.Right} id="fail" />
-    </div>
+    <>
+      <Handle type="target" position={Position.Top}></Handle>
+      <div>A special number: {data.method}</div>
+      <Handle type="source" position={Position.Bottom}></Handle>
+    </>
   );
 };
+
+export default HttpNodeComp;
